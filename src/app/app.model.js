@@ -14,13 +14,13 @@ export const quotes = [
 export const accounts = [
     {
         name: "Pad a girl",
-        bankName: "Zenit Bank",
-        acctNumber: "2367131683"
+        bankName: "Bank a",
+        acctNumber: "2346765653"
     },
     {
         name: "Pad a girl2",
-        bankName: "Zenit Bank2",
-        acctNumber: "23671316832"
+        bankName: "Bank b",
+        acctNumber: "2346765658"
     }
 ]
 
@@ -28,7 +28,16 @@ export const padPickups = [
     {
         location: "Crunchies",
         contactPerson: "Emmanuel",
-        contact: "08123451746"
+        contact: "08123467566"
+    },
+    {
+        location: "AJs",
+        contactPerson: "John",
+        contact: "08123467566"
+    }, {
+        location: "Crunchies",
+        contactPerson: "Emmanuel",
+        contact: "08123467566"
     },
     {
         location: "AJs",
@@ -46,7 +55,7 @@ export const padPickups = [
     }, {
         location: "Crunchies",
         contactPerson: "Emmanuel",
-        contact: "08123451746"
+        contact: "08123467566"
     },
     {
         location: "AJs",
@@ -55,7 +64,7 @@ export const padPickups = [
     }, {
         location: "Crunchies",
         contactPerson: "Emmanuel",
-        contact: "08123451746"
+        contact: "08123467566"
     },
     {
         location: "AJs",
@@ -64,16 +73,7 @@ export const padPickups = [
     }, {
         location: "Crunchies",
         contactPerson: "Emmanuel",
-        contact: "08123451746"
-    },
-    {
-        location: "AJs",
-        contactPerson: "John",
-        contact: "08123451748"
-    }, {
-        location: "Crunchies",
-        contactPerson: "Emmanuel",
-        contact: "08123451746"
+        contact: "08123467566"
     },
     {
         location: "AJs",
