@@ -130,8 +130,8 @@ export default class App {
         burgerBtn.onclick = this._onBurgerBtnClick
     }
 
-    _onBurgerBtnClick(e) {
-        e.target.classList.toggle("burger-btn--active")
+    _onBurgerBtnClick(e, ) {
+        this.classList.toggle("burger-btn--active")
         document.querySelector("#fly-out-js").classList.toggle("fly-out--hidden")
     }
 
