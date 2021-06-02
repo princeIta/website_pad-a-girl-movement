@@ -1,5 +1,5 @@
 import QuoteComponent from "./animated-quote/animated-quote"
-import { quotes, accounts, padPickups } from "./app.model"
+import { quotes, accounts, padPickups, aboutText } from "./app.model"
 import { htmlToElement } from "../utils/html-to-elem"
 import modal from "./modal/modal"
 
@@ -34,12 +34,31 @@ export default class App {
         this._initQuotes()
         this._initBankAccountsUi()
         this._initPadPickupsUi()
+        this._initAboutModal()
 
         const screenWidth = window.innerWidth
 
         if (+screenWidth < 768) {
             this._initGetPadButton()
         }
+    }
+
+    _initAboutModal() {
+        document.querySelector("#about-button-js").onclick = (e) => {
+            e.preventDefault()
+            modal({ modalId: "about-modal-js" }).open()
+        }
+
+        document.querySelectorAll(".about-text").forEach((elem) => {
+            elem.textContent = aboutText
+        })
+
+        document.querySelectorAll(".about-close-button-js").forEach(elem => {
+            elem.onclick = (e) => {
+                e.preventDefault();
+                modal({ modalId: "about-modal-js" }).close()
+            }
+        })
     }
 
     _initGetPadButton() {
@@ -130,7 +149,7 @@ export default class App {
         burgerBtn.onclick = this._onBurgerBtnClick
     }
 
-    _onBurgerBtnClick(e, ) {
+    _onBurgerBtnClick(e,) {
         this.classList.toggle("burger-btn--active")
         document.querySelector("#fly-out-js").classList.toggle("fly-out--hidden")
     }

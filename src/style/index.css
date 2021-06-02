@@ -326,6 +326,7 @@ html, body {
     overflow: auto;
     height: 278px;
     padding: 0 1em;
+    color: #aeaeae;
 }
 
 .modal__footer {
@@ -340,7 +341,7 @@ html, body {
     align-items: center;
 }
 
-.modal__footer-okbtn {
+.modal__footer-okbtn, .modal__footer-closebtn {
     border: none;
     outline: none;
     background-color: #5c60ea;

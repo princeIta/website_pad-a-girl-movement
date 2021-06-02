@@ -17,7 +17,7 @@ export default function modal({ modalId, trigger, onDismiss = () => { }, onOk = 
     const remove = () => {
         modalTemplate.remove()
     }
-    const getInstance = () => {
+    const getDomElem = () => {
         return modalTemplate
     }
 
@@ -31,6 +31,6 @@ export default function modal({ modalId, trigger, onDismiss = () => { }, onOk = 
         open,
         close,
         remove,
-        getInstance
+        getDomElem
     }
 }
