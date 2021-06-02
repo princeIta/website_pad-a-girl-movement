@@ -221,6 +221,28 @@ html, body {
     width: 50.03px;
 }
 
+/* about button */
+
+.about-button {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    padding: 0.5em 0.5em 0 0.5em;
+}
+
+.about-button-icon {
+    height: 36px;
+    opacity: 0.7;
+    transition: transform 0.5s;
+    width: 45px;
+}
+
+.about-button:hover .about-button-icon{
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+
 /* Modal */
 
 .modal {
@@ -610,7 +632,7 @@ html, body {
 
 @media screen and (min-width: 1024px) {
     .app {
-        background-position: left bottom ;
+        background-position: left bottom;
     }
     .quote-wrapper {
         max-width: 20em;
