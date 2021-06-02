@@ -81,3 +81,15 @@ export const padPickups = [
         contact: "08123451748"
     },
 ]
+
+export const aboutText = `While creating my PetMe project I was looking for a way to easiest create a pop-up window
+which will allow users to know they entered an incorrect password or username. I was stuck.
+I tried to use an alert but I couldn’t find a way to customize it as I wanted to. I finally
+went to a Meet-up where an amazing hero came to the rescue. She introduced me to a Modal.
+A modal is customizable to accomplish any of you pop-up needs on your app.It is a
+dialog/interactive box that sits on a current page. It is built with CSS, HTML, and
+Javascript. I will go step by step to show how I created a modal using all these tools
+including bootstrap(no shame in a little design help!). If you are more creative than me you
+can opt out of using bootstrap and I will make note of it below.
+I will begin to explain the process of how I made my modal which is displayed below.
+`
