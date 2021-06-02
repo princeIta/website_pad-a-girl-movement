@@ -99,7 +99,10 @@ module.exports = (env, argv) => ({
             {
                 patterns: [{
                     from: './src/assets',
-                    to: './assets'
+                    to: './assets',
+                }, {
+                    from: './src/style',
+                    to: "./style"
                 }]
             },
         ),
