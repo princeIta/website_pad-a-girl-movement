@@ -24,6 +24,15 @@ export const accounts = [
     }
 ]
 
+export const accountStatement = {
+    padsDonated: 200,
+    cashDonated: 45000,
+    padsGivenOut: 150,
+    padsAvailable: 50,
+    donors: 20,
+    expenses: 28000
+}
+
 export const padPickups = [
     {
         location: "Crunchies",

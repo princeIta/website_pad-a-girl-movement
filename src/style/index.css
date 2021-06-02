@@ -148,6 +148,20 @@ html, body {
 .article-inf--size {
     min-width: 285px;
     text-align: left;
+    font-size: 18px;
+    padding: 0.2em 0.1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.article__field-name{
+    min-width: 150px;
+    display: inline-block;
+}
+
+.article__field-val{
+    width: 80px;
+    text-align: right;
 }
 
 .fly-out__article {

@@ -1,5 +1,5 @@
 import QuoteComponent from "./animated-quote/animated-quote"
-import { quotes, accounts, padPickups, aboutText } from "./app.model"
+import { quotes, accountStatement, padPickups, aboutText } from "./app.model"
 import { htmlToElement } from "../utils/html-to-elem"
 import modal from "./modal/modal"
 
@@ -32,7 +32,7 @@ export default class App {
         this.appTemplate = appTemplate
         this._initAppMenu()
         this._initQuotes()
-        this._initBankAccountsUi()
+        this._initAccountStatementUI()
         this._initPadPickupsUi()
         this._initAboutModal()
 
@@ -102,39 +102,43 @@ export default class App {
         this.padPickupsTemplate = htmlToElement(padPickupsTemplate)
     }
 
-    _initBankAccountsUi() {
-        const accountTemplate = (account, { hideable }) => {
+    _initAccountStatementUI() {
+        const accountStatementArray = [accountStatement]
+        const statementTemplate = (statement, { hideable }) => {
             const className = `class = "account ${hideable ? "account--hideable" : ""}"`
 
             return `
             <div ${className} >
-                <div class="article-inf article-inf--size"> Account Number: ${account.acctNumber}
+                <div class="article-inf article-inf--size"> <span class="article__field-name"> Pads donated: </span> <span class="article__field-sep"> - </span> <span class="article__field-val">${statement.padsDonated}</span>
                 </div>
-                <div class="article-inf article-inf--size"> Bank: ${account.bankName} </div>
-                <div class="article-inf article-inf--size"> Account Name: ${account.name} </div>
+                <div class="article-inf article-inf--size"> <span class="article__field-name"> Cash donated: </span> <span class="article__field-sep"> - </span> <span class="article__field-val">₦${statement.cashDonated}</span> </div>
+                <div class="article-inf article-inf--size"> <span class="article__field-name"> Pads given out:</span> <span class="article__field-sep"> - </span> <span class="article__field-val">${statement.padsGivenOut}</span> </div>
+                <div class="article-inf article-inf--size"> <span class="article__field-name"> Pads available:</span> <span class="article__field-sep"> - </span> <span class="article__field-val">${statement.padsAvailable}</span> </div>
+                <div class="article-inf article-inf--size"> <span class="article__field-name"> No of donors:</span> <span class="article__field-sep"> - </span> <span class="article__field-val">${statement.donors}</span> </div>
+                <div class="article-inf article-inf--size"> <span class="article__field-name"> Expenses:</span> <span class="article__field-sep"> - </span> <span class="article__field-val">₦${statement.expenses}</span> </div>
             </div >
             `
         }
 
-        const accountsTemplate = `
+        const accountStatementTemplate = `
         <div class="accounts">
-            ${accounts.length > 1 ? `
+            ${accountStatementArray.length > 1 ? `
                 <div class="arrow" id="accounts-more-indicator">
                         <span></span>
                         <span></span>
                         <span></span>
                 </div>
             `: ""}
-            ${accounts.reduce(
-            (html, accountModel, idx) => {
-                return html + accountTemplate(accountModel,
+            ${accountStatementArray.reduce(
+            (html, accountStatementModel, idx) => {
+                return html + statementTemplate(accountStatementModel,
                     {
-                        hideable: (accounts.length - 1 === idx) ? false : true
+                        hideable: (accountStatementArray.length - 1 === idx) ? false : true
                     })
             }, "")}
         </div > `
 
-        this.accountsTemplate = htmlToElement(accountsTemplate)
+        this.accountStatementTemplate = htmlToElement(accountStatementTemplate)
     }
 
     _initQuotes() {
@@ -157,7 +161,8 @@ export default class App {
     mount() {
         this.quotesTemplate.appendChild(this.quoteComponent.mount())
         this.appTemplate.appendChild(this.quotesTemplate)
-        document.querySelector("#accounts-js").appendChild(this.accountsTemplate)
+        document.querySelector("#accounts-js").appendChild(this.accountStatementTemplate.cloneNode(true))
+        document.querySelector(".fly-out__article-js").appendChild(this.accountStatementTemplate.cloneNode(true))
         document.querySelector("#padpickups-js").appendChild(this.padPickupsTemplate)
         this._mountPadPickupBody()
         this.onMount()
