@@ -139,7 +139,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.5em;
+    padding: 0.9em;
     min-height: 15em;
     width: 100%;
     height: 100%;
@@ -168,7 +168,7 @@ html, body {
     width: 100%;
     text-align: left;
     border-bottom: 1px solid rgba( 255, 255, 255, 0.09);
-    padding: 1em;
+    padding-bottom: 6px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -399,6 +399,7 @@ html, body {
 .glass-card__title {
     border-bottom: 1px solid rgba(255, 255, 255, 0.09);
     margin-top: 1px;
+    margin-bottom: 10px;
     font-size: 17px;
 }
 
@@ -407,11 +408,11 @@ html, body {
     overflow: auto;
 }
 
-.accounts{
-    max-height: 115px;
+.accounts {
+    max-height: 20em;
 }
 
-.pad-pickups{
+.pad-pickups {
     max-height: 20em;
 }
 
@@ -601,11 +602,17 @@ html, body {
 }
 
 @media screen and (min-width: 768px) {
-    .accounts{
+    .glass-card__title {
+        margin-bottom: initial;
+    }
+    .accounts {
         max-height: 20em;
     }
     .pad-pickup-button {
         display: none;
+    }
+    .fly-out__article {
+        padding: 1em;
     }
     .fly-out--glassmorphism {
         background: rgba( 0, 0, 0, 0.10);
