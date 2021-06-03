@@ -148,18 +148,18 @@ html, body {
 .article-inf--size {
     min-width: 285px;
     text-align: left;
-    font-size: 18px;
+    font-size: 14px;
     padding: 0.2em 0.1em;
     display: flex;
     justify-content: space-between;
 }
 
-.article__field-name{
+.article__field-name {
     min-width: 150px;
     display: inline-block;
 }
 
-.article__field-val{
+.article__field-val {
     width: 80px;
     text-align: right;
 }
@@ -172,6 +172,10 @@ html, body {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.about-text {
+    font-size: 15px;
 }
 
 .menu__link {
@@ -251,11 +255,10 @@ html, body {
     width: 45px;
 }
 
-.about-button:hover .about-button-icon{
+.about-button:hover .about-button-icon {
     opacity: 1;
     transform: scale(1.3);
 }
-
 
 /* Modal */
 
@@ -396,12 +399,20 @@ html, body {
 .glass-card__title {
     border-bottom: 1px solid rgba(255, 255, 255, 0.09);
     margin-top: 1px;
+    font-size: 17px;
 }
 
 .accounts, .pad-pickups {
     height: fit-content;
-    max-height: 20em;
     overflow: auto;
+}
+
+.accounts{
+    max-height: 115px;
+}
+
+.pad-pickups{
+    max-height: 20em;
 }
 
 .account, .pad-pickup {
@@ -559,6 +570,15 @@ html, body {
 }
 
 @media screen and (min-width: 480px) {
+    .about-text {
+        font-size: 16px;
+    }
+    .article-inf--size {
+        font-size: 17px;
+    }
+    .glass-card__title {
+        font-size: 18px;
+    }
     .quotes {
         display: block;
         justify-content: unset;
@@ -581,6 +601,9 @@ html, body {
 }
 
 @media screen and (min-width: 768px) {
+    .accounts{
+        max-height: 20em;
+    }
     .pad-pickup-button {
         display: none;
     }
