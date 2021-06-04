@@ -1,14 +1,12 @@
 export const quotes = [
-    "A quick brow fox jumped over the lazy dog 1, A quick brow fox jumped over the lazy dog 1A quick brow fox jumped over the lazy dog 1",
-    "A quick brow fox jumped over the lazy dog 2, A quick brow fox jumped over the lazy dog 2A quick brow fox jumped over the lazy dog 2",
-    "A quick brow fox jumped over the lazy dog 3, A quick brow fox jumped over the lazy dog 3A quick brow fox jumped over the lazy dog 3",
-    "A quick brow fox jumped over the lazy dog 4, A quick brow fox jumped over the lazy dog 4A quick brow fox jumped over the lazy dog 4",
-    "A quick brow fox jumped over the lazy dog 5, A quick brow fox jumped over the lazy dog 5A quick brow fox jumped over the lazy dog 5",
-    "A quick brow fox jumped over the lazy dog 6, A quick brow fox jumped over the lazy dog 6A quick brow fox jumped over the lazy dog 6",
-    "A quick brow fox jumped over the lazy dog 7, A quick brow fox jumped over the lazy dog 7, A quick brow fox jumped over the lazy dog 7",
-    "A quick brow fox jumped over the lazy dog 8, A quick brow fox jumped over the lazy dog 8A quick brow fox jumped over the lazy dog 8",
-    "A quick brow fox jumped over the lazy dog 9, A quick brow fox jumped over the lazy dog 9A quick brow fox jumped over the lazy dog 9",
-    "A quick brow fox jumped over the lazy dog 10, A quick brow fox jumped over the lazy dog 10A quick brow fox jumped over the lazy dog 10"
+    "Periods don't descriminate between rich and poor but sanitary napkins do",
+    "Menstrual equity refers to equal menstrual hygiene products. We believe in equity",
+    "Period is not by choice but by nature",
+    "You can send women to the moon or mars later, but first provide them with sanitary pads",
+    "Menstruation is a natural physiological process. It has nothing to do with omen, what is more important is maintaining menstrual hygiene, pad a girl today",
+    "Flow is not a taboo",
+    "Menstruation is healthy, but poor menstrual hygiene is unhealthy",
+    "Educate your child about poor menstrual hygiene or call us to teach them for free"
 ]
 
 export const accounts = [
