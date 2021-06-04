@@ -24,81 +24,28 @@ export const accounts = [
     }
 ]
 
-export const accountStatement = {
-    padsDonated: 200,
-    cashDonated: 45000,
-    padsGivenOut: 150,
-    padsAvailable: 50,
-    donors: 20,
-    expenses: 28000
-}
+export const accountStatement = [
+    { field: "Pads donated", value: 0 },
+    { field: "Cash donated", value: "₦30,000" },
+    { field: "Pads given out", value: 0 },
+    { field: "Pads available", value: 20 },
+    { field: "Number of donors", value: 1 },
+    { field: "Number of pads bought", value: 1 },
+    { field: "Expenses", value: "₦20,200" }
+]
 
 export const padPickups = [
     {
-        location: "Crunchies",
-        contactPerson: "Emmanuel",
-        contact: "08123467566"
-    },
-    {
-        location: "AJs",
-        contactPerson: "John",
-        contact: "08123467566"
-    }, {
-        location: "Crunchies",
-        contactPerson: "Emmanuel",
-        contact: "08123467566"
-    },
-    {
-        location: "AJs",
-        contactPerson: "John",
-        contact: "08123451748"
-    }, {
-        location: "Crunchies",
-        contactPerson: "Emmanuel",
-        contact: "08123451746"
-    },
-    {
-        location: "AJs",
-        contactPerson: "John",
-        contact: "08123451748"
-    }, {
-        location: "Crunchies",
-        contactPerson: "Emmanuel",
-        contact: "08123467566"
-    },
-    {
-        location: "AJs",
-        contactPerson: "John",
-        contact: "08123451748"
-    }, {
-        location: "Crunchies",
-        contactPerson: "Emmanuel",
-        contact: "08123467566"
-    },
-    {
-        location: "AJs",
-        contactPerson: "John",
-        contact: "08123451748"
-    }, {
-        location: "Crunchies",
-        contactPerson: "Emmanuel",
-        contact: "08123467566"
-    },
-    {
-        location: "AJs",
-        contactPerson: "John",
-        contact: "08123451748"
+        location: "525 System",
+        contactPerson: "Miss Joy ",
+        contact: "09068425081"
     },
 ]
 
-export const aboutText = `While creating my PetMe project I was looking for a way to easiest create a pop-up window
-which will allow users to know they entered an incorrect password or username. I was stuck.
-I tried to use an alert but I couldn’t find a way to customize it as I wanted to. I finally
-went to a Meet-up where an amazing hero came to the rescue. She introduced me to a Modal.
-A modal is customizable to accomplish any of you pop-up needs on your app.It is a
-dialog/interactive box that sits on a current page. It is built with CSS, HTML, and
-Javascript. I will go step by step to show how I created a modal using all these tools
-including bootstrap(no shame in a little design help!). If you are more creative than me you
-can opt out of using bootstrap and I will make note of it below.
-I will begin to explain the process of how I made my modal which is displayed below.
-`
+export const about = [
+    {
+        title: "Vision",
+        value: `Our Vision is to see every girl get a free sanitary pad and maintain a comfortable
+            menstrual hygiene
+            `
+    }]

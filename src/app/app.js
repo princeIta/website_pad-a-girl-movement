@@ -1,5 +1,5 @@
 import QuoteComponent from "./animated-quote/animated-quote"
-import { quotes, accountStatement, padPickups, aboutText } from "./app.model"
+import { quotes, accountStatement, padPickups, about } from "./app.model"
 import { htmlToElement } from "../utils/html-to-elem"
 import modal from "./modal/modal"
 
@@ -49,8 +49,23 @@ export default class App {
             modal({ modalId: "about-modal-js" }).open()
         }
 
+        const eachSectionTemplate = (title, text) => `
+            <article>
+                <h3 style="width: fit-content; text-decoration: underline">${title}</h3>
+                <div>
+                    ${text}
+                </div>
+            </article>
+        `
+
+        const aboutBody = `<div>
+            ${about.reduce((html, data) => {
+            return html + eachSectionTemplate(data.title, data.value)
+        }, "")}
+        </div>`
+
         document.querySelectorAll(".about-text").forEach((elem) => {
-            elem.textContent = aboutText
+            elem.appendChild(htmlToElement(aboutBody))
         })
 
         document.querySelectorAll(".about-close-button-js").forEach(elem => {
@@ -109,13 +124,20 @@ export default class App {
 
             return `
             <div ${className} >
-                <div class="article-inf article-inf--size"> <span class="article__field-name"> Pads donated: </span> <span class="article__field-sep"> - </span> <span class="article__field-val">${statement.padsDonated}</span>
-                </div>
-                <div class="article-inf article-inf--size"> <span class="article__field-name"> Cash donated: </span> <span class="article__field-sep"> - </span> <span class="article__field-val">₦${statement.cashDonated}</span> </div>
-                <div class="article-inf article-inf--size"> <span class="article__field-name"> Pads given out:</span> <span class="article__field-sep"> - </span> <span class="article__field-val">${statement.padsGivenOut}</span> </div>
-                <div class="article-inf article-inf--size"> <span class="article__field-name"> Pads available:</span> <span class="article__field-sep"> - </span> <span class="article__field-val">${statement.padsAvailable}</span> </div>
-                <div class="article-inf article-inf--size"> <span class="article__field-name"> No of donors:</span> <span class="article__field-sep"> - </span> <span class="article__field-val">${statement.donors}</span> </div>
-                <div class="article-inf article-inf--size"> <span class="article__field-name"> Expenses:</span> <span class="article__field-sep"> - </span> <span class="article__field-val">₦${statement.expenses}</span> </div>
+                ${statement.length ? statement.reduce((html, data) => {
+                return html + `
+                    <div class="article-inf article-inf--size"> 
+                        <span class="article__field-name"> 
+                            ${data.field}: 
+                        </span> 
+                        <span class="article__field-sep"> 
+                            - 
+                        </span> 
+                        <span class="article__field-val">
+                            ${data.value}
+                        </span>
+                    </div>`
+            }, "") : ""}
             </div >
             `
         }
