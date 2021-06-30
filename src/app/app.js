@@ -78,13 +78,7 @@ export default class App {
 
     _initGetPadButton() {
         const getpadButton = document.querySelector("#pad-pickup-button")
-        getpadButton.onclick = this._handleGetPadButtonClick
-    }
-
-    _handleGetPadButtonClick(e) {
-        e.preventDefault()
-        const getPadModal = modal({ modalId: "pad-pickup-modal-js" })
-        getPadModal.open()
+        getpadButton.onclick = handleGetPadButtonClick
     }
 
     _initPadPickupsUi() {
@@ -172,7 +166,7 @@ export default class App {
 
     _initAppMenu() {
         const burgerBtn = document.querySelector("#burger-btn-js")
-        burgerBtn.onclick = this._onBurgerBtnClick
+        burgerBtn.onclick = onBurgerBtnClick
     }
 
     _onBurgerBtnClick(e,) {
@@ -214,3 +208,21 @@ export default class App {
         this.quoteComponent.onMount()
     }
 }
+
+function onBurgerBtnClick(e) {
+    this.classList.toggle("burger-btn--active")
+    document.querySelector("#fly-out-js").classList.toggle("fly-out--hidden")
+}
+
+function handleGetPadButtonClick(e) {
+    e.preventDefault()
+    const getPadModal = modal({ modalId: "pad-pickup-modal-js" })
+    getPadModal.open()
+}
+
+function handleMessageBubbleButtonClick(drawer, e) {
+    e.preventDefault()
+    drawer.show()
+    closeFlyoutMenuIfOpen()
+}
+
