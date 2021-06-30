@@ -1,6 +1,7 @@
 import QuoteComponent from "./animated-quote/animated-quote"
 import { quotes, accountStatement, padPickups, about } from "./app.model"
 import { htmlToElement } from "../utils/html-to-elem"
+import Drawer from "./drawer/drawer"
 import modal from "./modal/modal"
 
 const padPickupContainerTemplate = (pickup, { className }) => `
@@ -35,6 +36,7 @@ export default class App {
         this._initAccountStatementUI()
         this._initPadPickupsUi()
         this._initAboutModal()
+        this._initDrawer()
 
         const screenWidth = window.innerWidth
 
@@ -169,9 +171,10 @@ export default class App {
         burgerBtn.onclick = onBurgerBtnClick
     }
 
-    _onBurgerBtnClick(e,) {
-        this.classList.toggle("burger-btn--active")
-        document.querySelector("#fly-out-js").classList.toggle("fly-out--hidden")
+    _initDrawer() {
+        const drawer = new Drawer({ id: "feedback-drawer-js" })
+        document.querySelectorAll(".message-bubble-button-js")
+            .forEach(each => (each.onclick = handleMessageBubbleButtonClick.bind(this, drawer)))
     }
 
     mount() {
@@ -226,3 +229,11 @@ function handleMessageBubbleButtonClick(drawer, e) {
     closeFlyoutMenuIfOpen()
 }
 
+function closeFlyoutMenuIfOpen() {
+    const activeMenubtn = document.querySelector(".burger-btn--active")
+
+    if (activeMenubtn) {
+        activeMenubtn.classList.toggle("burger-btn--active")
+        document.querySelector("#fly-out-js").classList.toggle("fly-out--hidden")
+    }
+}
