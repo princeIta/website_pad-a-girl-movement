@@ -1,4 +1,4 @@
-import { htmlToElement } from "../../utils/html-to-elem"
+import { htmlToElement } from "../../../utils/html-to-elem"
 
 export default (text) => htmlToElement(`
 <div class="quote-wrapper" id="quote-wrapper-js">

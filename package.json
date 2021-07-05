@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack --mode=development",
-    "serve": "webpack serve --open --mode=development --hot",
+    "serve": "webpack serve --open --mode=development --hot && reload -b -d dist -p 8989",
     "watch": "webpack --mode development -w && reload -b -d dist -p 8989"
   },
   "keywords": [
@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "fade": "^0.2.0",
+    "firebase": "9.0.0-beta.2",
     "image-webpack-loader": "^7.0.1",
     "random": "^3.0.6",
     "webpack-node-externals": "^3.0.0"
@@ -34,6 +35,7 @@
     "compression-webpack-plugin": "^8.0.0",
     "copy-webpack-plugin": "^9.0.0",
     "css-loader": "^5.2.6",
+    "dotenv-webpack": "^7.0.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",

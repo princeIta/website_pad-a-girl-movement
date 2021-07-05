@@ -1,7 +1,9 @@
-import QuoteComponent from "./animated-quote/animated-quote"
+import QuoteComponent from "./components/animated-quote/animated-quote"
 import { quotes, accountStatement, padPickups, about } from "./app.model"
 import { htmlToElement } from "../utils/html-to-elem"
-import modal from "./modal/modal"
+import Drawer from "./reusables/drawer/drawer"
+import modal from "./reusables/modal/modal"
+import feedbackPage from "./components/feedback-drawer/feedback-drawer.module"
 
 const padPickupContainerTemplate = (pickup, { className }) => `
 <div ${className} >
@@ -35,12 +37,18 @@ export default class App {
         this._initAccountStatementUI()
         this._initPadPickupsUi()
         this._initAboutModal()
+        this._initDrawer()
+        this._initFeedback()
 
         const screenWidth = window.innerWidth
 
         if (+screenWidth < 768) {
             this._initGetPadButton()
         }
+    }
+
+    _initFeedback() {
+        feedbackPage()
     }
 
     _initAboutModal() {
@@ -78,13 +86,7 @@ export default class App {
 
     _initGetPadButton() {
         const getpadButton = document.querySelector("#pad-pickup-button")
-        getpadButton.onclick = this._handleGetPadButtonClick
-    }
-
-    _handleGetPadButtonClick(e) {
-        e.preventDefault()
-        const getPadModal = modal({ modalId: "pad-pickup-modal-js" })
-        getPadModal.open()
+        getpadButton.onclick = handleGetPadButtonClick
     }
 
     _initPadPickupsUi() {
@@ -172,22 +174,13 @@ export default class App {
 
     _initAppMenu() {
         const burgerBtn = document.querySelector("#burger-btn-js")
-        burgerBtn.onclick = this._onBurgerBtnClick
+        burgerBtn.onclick = onBurgerBtnClick
     }
 
-    _onBurgerBtnClick(e,) {
-        this.classList.toggle("burger-btn--active")
-        document.querySelector("#fly-out-js").classList.toggle("fly-out--hidden")
-    }
-
-    mount() {
-        this.quotesTemplate.appendChild(this.quoteComponent.mount())
-        this.appTemplate.appendChild(this.quotesTemplate)
-        document.querySelector("#accounts-js").appendChild(this.accountStatementTemplate.cloneNode(true))
-        document.querySelector(".fly-out__article-js").appendChild(this.accountStatementTemplate.cloneNode(true))
-        document.querySelector("#padpickups-js").appendChild(this.padPickupsTemplate)
-        this._mountPadPickupBody()
-        this.onMount()
+    _initDrawer() {
+        const drawer = new Drawer({ id: "feedback-drawer-js" })
+        document.querySelectorAll(".message-bubble-button-js")
+            .forEach(each => (each.onclick = handleMessageBubbleButtonClick.bind(this, drawer)))
     }
 
     _mountPadPickupBody() {
@@ -205,6 +198,16 @@ export default class App {
             .appendChild(padPickupsViewElem)
     }
 
+    mount() {
+        this.quotesTemplate.appendChild(this.quoteComponent.mount())
+        this.appTemplate.appendChild(this.quotesTemplate)
+        document.querySelector("#accounts-js").appendChild(this.accountStatementTemplate.cloneNode(true))
+        document.querySelector(".fly-out__article-js").appendChild(this.accountStatementTemplate.cloneNode(true))
+        document.querySelector("#padpickups-js").appendChild(this.padPickupsTemplate)
+        this._mountPadPickupBody()
+        this.onMount()
+    }
+
     onMount() {
         const elemHeight = this.quotesTemplate.clientHeight
         const elemWidth = this.quotesTemplate.clientWidth
@@ -212,5 +215,31 @@ export default class App {
             { parentWitdth: elemWidth, parentHeight: elemHeight }
         )
         this.quoteComponent.onMount()
+    }
+}
+
+function onBurgerBtnClick(e) {
+    this.classList.toggle("burger-btn--active")
+    document.querySelector("#fly-out-js").classList.toggle("fly-out--hidden")
+}
+
+function handleGetPadButtonClick(e) {
+    e.preventDefault()
+    const getPadModal = modal({ modalId: "pad-pickup-modal-js" })
+    getPadModal.open()
+}
+
+function handleMessageBubbleButtonClick(drawer, e) {
+    e.preventDefault()
+    drawer.show()
+    closeFlyoutMenuIfOpen()
+}
+
+function closeFlyoutMenuIfOpen() {
+    const activeMenubtn = document.querySelector(".burger-btn--active")
+
+    if (activeMenubtn) {
+        activeMenubtn.classList.toggle("burger-btn--active")
+        document.querySelector("#fly-out-js").classList.toggle("fly-out--hidden")
     }
 }

@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => ({
     entry: {
@@ -82,6 +83,7 @@ module.exports = (env, argv) => ({
         ]
     },
     plugins: [
+        new Dotenv(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename:
