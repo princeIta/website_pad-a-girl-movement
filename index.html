@@ -11,6 +11,7 @@
 
 <body>
     <main class="app" id="app">
+        <!-- Get a pad button mobile -->
         <button class="pad-pickup-button pulse" id="pad-pickup-button">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 226 226"
                 style=" fill:#000000; height: 30px; width: 30px;">
@@ -95,6 +96,7 @@
                 </li>
             </ul>
         </section>
+        <!-- Menu button for mobile -->
         <footer class="menu">
             <button class="burger-btn" id="burger-btn-js">
                 <span class="burger-btn__line1"></span>
@@ -102,24 +104,49 @@
                 <span class="burger-btn__line3"></span>
             </button>
         </footer>
+        <!-- testimonials Drawer -->
         <section id="feedback-drawer-js" class="drawer">
             <div class="drawer__backdrop">
             </div>
             <div class="drawer__body">
-                <section style="padding: 44px 15px">
+                <section style="padding: 15px; height: 100%">
                     <h3 style="margin: 5px 0">Testimonials</h3>
+                    <div class="feedback-scroll-box-js" style="overflow-y: auto; height: calc(100% - 220px);">
+                        <div class="feedback__body">
+                        </div>
+                    </div>
                     <div>
                         <form class="feedback-form feedback-form-js">
-                            <textarea name="feedback" placeholder="Enter a feedback" class="feedback__input--glassmorphism"></textarea>
-                            <input class="feedback-form__button--glasmorphism" type="submit" value="Submit" />
+                            <input 
+                                required
+                                name="name" 
+                                id="feedback-name-input" 
+                                class="feedback__input--glassmorphism"
+                                type="text"
+                                placeholder="Enter your name" 
+                            />
+                            <textarea 
+                                required
+                                id="feedback-text" 
+                                name="feedback" 
+                                placeholder="Enter testimonial"
+                                class="feedback__input--glassmorphism"
+                            ></textarea>
+                            <button 
+                                name="submit"
+                                id="feedback-submit-btn-js" 
+                                class="feedback-form__button--glasmorphism" 
+                                type="submit"
+                            >Submit</button>
                         </form>
                         <section>
-                            
+
                         </section>
                     </div>
                 </section>
             </div>
         </section>
+        <!-- Testimonial drawer action button -->
         <a href="#" title="leave a message"
             class="message-bubble-button message-bubble-button--float message-bubble-button-js">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="30" viewBox="0 0 172 172"
@@ -138,6 +165,7 @@
             </svg>
         </a>
     </main>
+    <!-- About modal -->
     <article class="modal" id="about-modal-js">
         <section class="modal__backdrop modal__backdrop--none">
         </section>
@@ -154,6 +182,7 @@
             </div>
         </section>
     </article>
+    <!-- Pad pickup modal for mobile -->
     <article class="modal" id="pad-pickup-modal-js">
         <section class="modal__backdrop modal__backdrop--none">
         </section>

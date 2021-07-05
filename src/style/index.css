@@ -273,7 +273,8 @@ html, body {
     display: initial;
     position: absolute;
     bottom: 2px;
-    left: 10px;
+    right: 10px;
+    transform: rotateY( 180deg);
 }
 
 /* Modal */
@@ -576,7 +577,7 @@ html, body {
     right: -105vw;
 }
 
-.drawer__backdrop{
+.drawer__backdrop {
     cursor: pointer;
 }
 
@@ -597,7 +598,14 @@ html, body {
     justify-content: flex-start;
 }
 
-.feedback-form>input[type="submit"] {
+.feedback__body {
+    min-height: calc(100% - 220px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.feedback-form>button[type="submit"] {
     width: 150px;
     height: 37px;
     margin: 1em 0;
@@ -608,8 +616,11 @@ html, body {
     font-weight: bold;
     padding: 12px 0;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .feedback-form__button--glasmorphism {
@@ -631,26 +642,34 @@ html, body {
     border: 1px solid rgba( 255, 255, 255, 0.09);
 }
 
-.feedback-form textarea {
+.feedback-form textarea, .feedback-form input[type="text"] {
     font-family: "Open Sans", Calibri, Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     padding: 10px;
     position: relative;
-    width: 327px;
-    height: 114px;
     border: none;
     border-left: 2px solid rgba(255, 255, 255, 0.2);
     border-top: 2px solid rgba(255, 255, 255, 0.2);
     color: rgb(255, 255, 255);
-    resize: none;
     outline: none;
     transition: color 0.3s ease-out;
+    width: 327px;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.feedback-form input[type="text"] {
+    margin: 10px 0 10px 0;
+}
+
+.feedback-form textarea {
+    height: 80px;
+    resize: none;
 }
 
 @media screen and (min-width: 480px) {
     .drawer__body {
-        max-width: 450px;
+        max-width: 390px;
         box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
         /* background-color: rgba( 255, 255, 255, 0.8); */
     }

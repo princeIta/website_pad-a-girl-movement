@@ -1,4 +1,4 @@
-import { htmlToElement } from "../../utils/html-to-elem";
+import { htmlToElement } from "../../../utils/html-to-elem";
 
 export default class Drawer {
     constructor({ className, id }) {

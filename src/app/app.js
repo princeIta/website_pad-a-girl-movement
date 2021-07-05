@@ -1,8 +1,9 @@
-import QuoteComponent from "./animated-quote/animated-quote"
+import QuoteComponent from "./components/animated-quote/animated-quote"
 import { quotes, accountStatement, padPickups, about } from "./app.model"
 import { htmlToElement } from "../utils/html-to-elem"
-import Drawer from "./drawer/drawer"
-import modal from "./modal/modal"
+import Drawer from "./reusables/drawer/drawer"
+import modal from "./reusables/modal/modal"
+import feedbackPage from "./components/feedback-drawer/feedback-drawer.module"
 
 const padPickupContainerTemplate = (pickup, { className }) => `
 <div ${className} >
@@ -37,12 +38,17 @@ export default class App {
         this._initPadPickupsUi()
         this._initAboutModal()
         this._initDrawer()
+        this._initFeedback()
 
         const screenWidth = window.innerWidth
 
         if (+screenWidth < 768) {
             this._initGetPadButton()
         }
+    }
+
+    _initFeedback() {
+        feedbackPage()
     }
 
     _initAboutModal() {
@@ -177,16 +183,6 @@ export default class App {
             .forEach(each => (each.onclick = handleMessageBubbleButtonClick.bind(this, drawer)))
     }
 
-    mount() {
-        this.quotesTemplate.appendChild(this.quoteComponent.mount())
-        this.appTemplate.appendChild(this.quotesTemplate)
-        document.querySelector("#accounts-js").appendChild(this.accountStatementTemplate.cloneNode(true))
-        document.querySelector(".fly-out__article-js").appendChild(this.accountStatementTemplate.cloneNode(true))
-        document.querySelector("#padpickups-js").appendChild(this.padPickupsTemplate)
-        this._mountPadPickupBody()
-        this.onMount()
-    }
-
     _mountPadPickupBody() {
         const padPickupsViewHTML = padPickups.reduce((html, padPickup) => {
             return html + padPickupContainerTemplate(padPickup, { className: 'class = "pad-pickup"' })
@@ -200,6 +196,16 @@ export default class App {
         document
             .querySelector("#pad-pickup-modal-js .modal__content")
             .appendChild(padPickupsViewElem)
+    }
+
+    mount() {
+        this.quotesTemplate.appendChild(this.quoteComponent.mount())
+        this.appTemplate.appendChild(this.quotesTemplate)
+        document.querySelector("#accounts-js").appendChild(this.accountStatementTemplate.cloneNode(true))
+        document.querySelector(".fly-out__article-js").appendChild(this.accountStatementTemplate.cloneNode(true))
+        document.querySelector("#padpickups-js").appendChild(this.padPickupsTemplate)
+        this._mountPadPickupBody()
+        this.onMount()
     }
 
     onMount() {
