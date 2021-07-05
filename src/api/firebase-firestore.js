@@ -6,6 +6,8 @@ import firebaseConfig from "../../firebase-config";
 
 const firebaseApp = initializeApp(firebaseConfig);
 
+console.log({firebaseConfig})
+
 const auth = getAuth();
 signInAnonymously(auth)
     .then(() => {
