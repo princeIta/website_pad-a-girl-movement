@@ -34,7 +34,7 @@ html, body {
 .app {
     height: 100%;
     background: url(../assets/images/bg1.jpg) 0% 0% / cover;
-    box-shadow: rgb(0 0 0 / 66%) 500px 5000px inset;
+    box-shadow: rgb(0 0 0 / 36%) 500px 5000px inset;
     background-position: center;
     position: relative;
     background-repeat: no-repeat;
