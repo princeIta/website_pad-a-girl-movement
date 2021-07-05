@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore, query, orderBy, limit, onSnapshot, addDoc, collection, startAfter, getDocs } from "firebase/firestore"
+import { getFirestore, query, orderBy, limit, addDoc, collection, startAfter, getDocs } from "firebase/firestore"
 import { getAuth, signInAnonymously } from "firebase/auth";
 
 import firebaseConfig from "../../firebase-config";
