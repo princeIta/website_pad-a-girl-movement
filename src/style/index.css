@@ -554,7 +554,7 @@ html, body {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     visibility: hidden;
     content-visibility: visible;
@@ -568,7 +568,7 @@ html, body {
 
 .drawer__backdrop, .drawer__body {
     background-color: rgba(0, 0, 0, 0.4);
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     margin: 0;
     padding: 0;
