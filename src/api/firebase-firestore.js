@@ -28,7 +28,7 @@ class CloudDB {
     }
 
     get(colName) {
-        const pageLimit = 5
+        const pageLimit = 50
         let cursor
 
         return {
