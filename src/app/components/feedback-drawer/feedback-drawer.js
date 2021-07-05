@@ -61,7 +61,6 @@ export default class FeedbackDrawer {
     }
 
     fetchData() {
-        const feedbackScrollBox = this.feedbackScrollBox
         const data = this.DB.get(
             "testimonials"
         )
