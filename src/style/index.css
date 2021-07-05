@@ -658,7 +658,7 @@ html, body {
     background-color: rgba(255, 255, 255, 0.04);
 }
 
-.feedback-form input[type="text"] {
+.feedback-form .feedback__name-input {
     margin: 10px 0 10px 0;
 }
 
