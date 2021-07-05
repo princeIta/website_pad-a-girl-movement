@@ -83,7 +83,7 @@ module.exports = (env, argv) => ({
         ]
     },
     plugins: [
-        new Dotenv(),
+        new Dotenv({ systemvars: true }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename:
