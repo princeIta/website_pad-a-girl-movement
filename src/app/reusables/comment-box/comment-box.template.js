@@ -1,16 +1,18 @@
 import formatTime from "../../../utils/time"
 
 export default function template({ name, message, date }) {
-    const nameArr = String(name).split(/\s+/)
+    const nameArr = String(name).trim().split(/\s+/)
     let initials = ""
 
     if (nameArr.length > 1) {
         const firstName = nameArr[0]
         const lastName = nameArr[nameArr.length - 1]
         initials += `${firstName[0]}${lastName[0]}`
+        console.log({name, nameArr, firstName, lastName, initials})
     } else {
         const firstName = nameArr[0]
         initials += firstName[0]
+        console.log({name, nameArr, firstName, lastName, initials, branch: "true"})
     }
 
     return `
