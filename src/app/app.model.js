@@ -23,13 +23,13 @@ export const accounts = [
 ]
 
 export const accountStatement = [
-    { field: "Pads donated", value: 0 },
-    { field: "Cash donated", value: "₦33,000" },
-    { field: "Pads given out", value: 90 },
-    { field: "Pads available", value: 7 },
-    { field: "Number of donors", value: 2 },
-    { field: "Number of pads bought", value: 54 },
-    { field: "Expenses", value: "₦54,900" }
+    { field: "Pads donated", value: 15 },
+    { field: "Cash donated", value: "₦50,000" },
+    { field: "Pads given out", value: 149 },
+    { field: "Pads available", value: 0 },
+    { field: "Number of donors", value: 4 },
+    { field: "Number of pads bought", value: 134 },
+    { field: "Expenses", value: "₦104,500" }
 ]
 
 export const padPickups = [
